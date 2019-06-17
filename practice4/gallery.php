@@ -25,10 +25,8 @@
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
-
     <hr>
     <h1 class="text_center"> Картинки который открываются в модальном окне </h1>
-    <div id="photo" class="photo-block">
         <form id="modalForm" class="photo-block" action="index.php" method="post">
             <?php  foreach ($images as $image): ?>
                 <?php if (!is_dir($image)) :  $imgPath = IMG_DIR.DIRECTORY_SEPARATOR.$image; ?>
@@ -39,7 +37,6 @@
             <?php endforeach; ?>
             <input class="modal_input hide" type="text" name="modal_image">
         </form>
-    </div>
     <script src="scripts/js/script.js"></script>
 </body>
 </html>
