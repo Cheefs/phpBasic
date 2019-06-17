@@ -17,7 +17,6 @@ const IMG_DIR = 'images';
 const IMAGES_DIST = __DIR__.DIRECTORY_SEPARATOR.IMG_DIR;
 
 try {
-//    var_dump($_POST); die();
     $modalImage = (isset($_POST['modal_image']) && trim($_POST['modal_image']) !== '' )? $_POST['modal_image'] : null;
     $images = scandir(IMAGES_DIST);
     require_once '_partial/modal.php';

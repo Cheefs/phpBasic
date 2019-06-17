@@ -1,4 +1,3 @@
-
 <div id = "modal-dialog" class = "modal-dialog <?= is_null($modalImage)? 'hide' : 'show' ?>">
     <div class="btn-dismiss-modal">&times;</div>
     <div class="modal-overflow"></div>

@@ -7,7 +7,6 @@ const IMAGES_DIST = __DIR__.DIRECTORY_SEPARATOR.IMG_DIR;
 
 $uploadedFile = $_FILES['image'];
 
-//var_dump($uploadedFile); die();
 $newFile = IMAGES_DIST.DIRECTORY_SEPARATOR. basename($uploadedFile['name']);
 $tmp_name = $_FILES["images"]["tmp_name"];
 $name = basename($uploadedFile["name"]);
