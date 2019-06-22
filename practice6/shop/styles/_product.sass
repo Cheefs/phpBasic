@@ -1,0 +1,560 @@
+@import "variables"
+.product-top-panel
+  height: 148px
+  background-color: $colorBreadCrumbs-bg
+  .container
+    height: 100%
+    +flexContainer()
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .breadcrumbs-a
+      text-transform: $textTransform
+      color: $colorBlack
+      line-height: 20px
+      padding: 1px
+      transition: 1s
+      display: block
+
+      &:hover
+        color: #e3455afc
+        font-weight: 700
+        transform: rotate(-20deg)
+
+      &.now
+        color: $colorPink
+        font-size: 15px
+        font-weight: 700
+        line-height: 20px
+        text-transform: $textTransform
+
+      &:hover
+        font-weight: 600
+        transform: rotate(-20deg) scale(1.05)
+
+    .breadcrumbs
+      display: flex
+      background: transparent
+      font-size: 14px
+      line-height: 20px
+      text-transform: $textTransform
+      color: #636363
+      font-weight: 500
+      transition: 0.7s
+
+    .top-panel-h3
+      .breadcrumbs-a
+        @extend .breadcrumbs-a
+        font-size: 24px
+        font-weight: 700
+        color: $colorPink
+
+
+.product-container
+  margin-top: 59px
+  display: flex
+  justify-content: space-between
+
+  .left-side
+    width: 243px
+    //height: 598px
+    .spoiler-container
+      &:hover .triangle
+        transform: rotate(-180deg) translate(1px,5px)
+        color: $colorPink
+
+      .spoiler
+        height: 37px
+        border-left: 5px solid #ef5b70
+        border-bottom: 1px solid #ebebeb
+        display: flex
+        color: #6f6e6e
+        position: relative
+        font-size: 14px
+        font-weight: 700
+        line-height: 20px
+        text-transform: $textTransform
+        margin-bottom: 18px
+        transition: 0.6s
+
+        .spoiler-h3
+          line-height: 14px
+          height: 14px
+          margin-left: 11px
+          margin-top: 12px
+          font-size: 14px
+
+        .triangle
+          position: absolute
+          content: ""
+          top: 14px
+          right: 6px
+          border: 5px solid transparent
+          border-top: 5px solid #6f6e6e
+          transition: 0.5s
+
+        &:hover
+          border-left-color: $colorPink-hover
+          background-color: $colorGray-dark
+          color: $colorPink
+        &:hover .triangle
+          border-top-color: $colorPink-hover
+
+        &.open
+          color: $colorPink
+
+          .triangle
+            @extend .triangle
+            top: 25%
+            border: 5px solid transparent
+            border-bottom: 5px solid #ef5b70
+            transition: 1s
+
+      .spoiler-items
+        margin-top: 15px
+        display: flex
+        flex-direction: column
+        margin-bottom: 0
+
+        .spoiler-items-a
+          display: block
+          padding-left: 17px
+          color: #6f6e6e
+          font-size: 14px
+          font-weight: 400
+          line-height: 33px
+          height: 0
+          opacity: 0
+
+          &:hover
+            background-color: $colorGray-dark
+            color: $colorPink
+
+      &:hover .spoiler-items .spoiler-items-a
+        animation: spoiler-items-opacity 0.5s linear forwards, spoiler-items-height 0.5s linear forwards
+  .right-side
+    //height: 1463px
+    width: 848px
+
+    .product-filters-block
+      //height: 165px
+      margin-bottom: 51px
+
+      .filters
+        width: 100%
+        padding: 0 3px
+        display: flex
+
+        .brand-filers
+          width: 177px
+          display: flex
+          flex-wrap: wrap
+          align-items: center
+
+          .brand-filers-h3
+            display: block
+            color: #6f6e6e
+            font-size: 14px
+            font-weight: 700
+            text-transform: $textTransform
+            margin-bottom: 20px
+
+          .brand-filers-a
+            display: block
+            color: #6f6e6e
+            font-size: 14px
+            font-weight: 400
+            padding: 0 3px
+            line-height: 14px
+            margin-top: 10px
+            transition: 0.5s
+
+            &:hover
+              color: #e3455afc
+              transform: scale(1.1) translate(-2px,-5px)
+              font-weight: 600
+
+          .brand-filers-span
+            font-size: 13px
+            height: 8px
+            font-weight: bold
+            color: #a4a4a4
+            margin: 0 5px
+
+        .size-filetes
+          width: 259px
+          height: 100%
+          margin-left: 115px
+
+          .size-filetes-h3
+            display: block
+            margin-bottom: 24px
+            line-height: 16px
+            color: #6f6e6e
+            font-size: 14px
+            font-weight: 700
+            text-transform: $textTransform
+          .filters-container
+            display: flex
+            flex-wrap: wrap
+            .checkbox
+              position: relative
+              display: flex
+              justify-content: space-between
+              width: 46px
+              height: 13px
+              line-height: 13px
+              margin-right: 18px
+              margin-bottom: 13px
+
+              input[type=checkbox]:checked + .checkbox-label:after
+                opacity: 1
+
+              .checkbox-label
+                cursor: pointer
+                position: absolute
+                width: 13px
+                height: 13px
+                top: 0
+                left: 0
+                background-color: $colorWhite-2
+                border: $minBorder-width solid $colorGray
+
+                .checkbox-span
+                  display: flex
+                  color: #6f6e6e
+                  font-size: 14px
+                  font-weight: 400
+                  text-transform: $textTransform
+                  padding-left: 22px
+                  transition: 0.7s
+
+                  &:hover
+                    font-weight: 600
+                    transform: translate(10px)
+                    color: $colorPink
+
+                &::after
+                  opacity: 0
+                  content: ''
+                  position: absolute
+                  width: 7px
+                  height: 4px
+                  background: transparent
+                  top: 2px
+                  left: 2px
+                  border: 2px solid #6f6e6e
+                  border-top: none
+                  border-right: none
+                  transform: rotate(-45deg)
+
+        .price-filter
+          height: 73px
+          .price-input
+            .price-input-h3
+              color: #6f6e6e
+              font-size: 14px
+              font-weight: 700
+              line-height: 20px
+              text-transform: $textTransform
+            .input-bar
+              width: 262px
+              height: 6px
+              border-radius: 3px
+              background-color: #f0f0f0
+
+              .input-value
+                width: 124px
+                height: 6px
+                background-color: $colorPink
+                display: flex
+                align-items: center
+                position: relative
+                margin-left: 23px
+                margin-top: 24px
+
+                .input-btn
+                  cursor: pointer
+                  width: 14px
+                  height: 14px
+                  background-color: $colorPink
+                  border-radius: 50%
+
+                  &:hover
+                    background-color: $colorPink-hover
+
+                  &.left
+                    position: absolute
+                    left: -1px
+
+                  &.right
+                    position: absolute
+                    right: -1px
+
+            .price-range
+              display: flex
+              justify-content: space-between
+              align-content: center
+              color: #6f6e6e
+              font-size: 14px
+              font-weight: 400
+              margin-top: 18px
+
+      .sorting
+        height: 50px
+        margin-top: 41px
+        display: flex
+        background-color: #f3f3f3
+        .sort-container
+          height: 30px
+          border: 1px solid #ebebeb
+          background-color: #ffffff
+          margin: 10px
+          display: flex
+          align-items: center
+          color: #6f6e6e
+          font-size: 14px
+          font-weight: 400
+          line-height: 26px
+
+          .sort-by
+            padding: 9px 10px
+            line-height: 14px
+            width: 47px
+
+          .condition
+            padding: 9px 33px
+            display: block
+            //width: 65px
+            padding-left: 11px
+            line-height: 14px
+            cursor: pointer
+            position: relative
+            border-left: 1px solid #ebebeb
+            color: #6f6e6e
+            font-size: 14px
+            font-weight: 400
+            &:hover
+              background-color:  #e9e9e987
+
+            .condition-span::after
+              content: ""
+              border: 4px solid transparent
+              border-top: 4px solid #a4a4a4
+              position: absolute
+              top: 14px
+              margin-left: 18px
+              color: #838383
+
+          .select-condition
+            padding: 6px 12px
+            border-color: #ebebeb
+            color: #6f6e6e
+            font-size: 14px
+            font-weight: 400
+            outline: none
+
+            &:hover
+              background-color: $colorGray-dark
+
+    .product-block
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+
+    .bottom
+      height: 44px
+      display: flex
+      width: 100%
+      align-items: center
+      justify-content: space-between
+      margin-top: 43px
+
+      .pages-block
+        display: flex
+        width: 261px
+        height: 100%
+        border-radius: 3px
+        border: 1px solid #ebebeb
+        background-color: #ffffff
+        align-items: center
+        justify-content: space-evenly
+        .pages-block-a
+          color: #c4c4c4
+          font-size: 16px
+          font-weight: bold
+          transition: 0.3s
+
+          &.active
+            color: #ef5b70
+
+          &:hover
+            color: $colorPink-hover
+            transform: scale(1.1)
+
+      .btn-view-all
+        border-radius: 3px
+        border: 1px solid $colorPink
+        background-color: #ffffff
+        color: $colorPink
+        font-size: 16px
+        font-weight: bold
+        line-height: 17px
+        padding: 13px 44px
+        transition: 0.5s
+
+        &:hover
+          color: $colorWhite
+          border-color: $colorWhite
+          background: $colorPink
+
+  .product
+    width: 263px
+    height: 364px
+    position: relative
+    margin-top: 38px
+    margin-right: 25px
+
+    &:hover .photo-link
+      filter: brightness(65%)
+      transform: translateY(-10px)
+
+    &:hover  .buttons
+      display: flex
+
+    &:nth-child(-n+3)
+      margin-top: 0
+
+    &:nth-child(3n)
+      margin-right: 0
+
+    .photo-link
+      display: block
+      height: 280px
+      background-color: #ffffff
+      filter: invert(5%)
+      transition: 0.2s
+
+      .photo
+        height: 100%
+        width: 100%
+        background-position: bottom !important
+
+    .buttons
+      display: none
+      width: 123px
+      height: 85px
+      position: absolute
+      top: 98px
+      left: 70px
+      color: #ffffff
+      font-size: 13px
+      flex-wrap: wrap
+      justify-content: space-between
+
+      .product-btn
+        &:hover
+          background-color: #ffffff59
+          transform: scale(1.2)
+        &:active
+          transform: scale(1)
+          border-color: $colorPink-hover
+
+      .add-to-cart
+        color: white
+        display: flex
+        width: 100%
+        height: 37px
+        align-items: center
+        border-radius: 3px
+        border: 1px solid #ffffff
+        transition: 0.3s
+        .cart
+          margin-left: 12px
+          margin-right: 8px
+
+      .small-btn
+        width: 55px
+        margin-top: 8px
+        height: 36px
+        border-radius: 3px
+        border: 1px solid #ffffff
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: 0.3s
+
+        img
+          margin-left: 12px
+          margin-right: 8px
+    .text
+      margin-top: 19px
+      margin-left: 15px
+      margin-bottom: 21px
+
+      .name
+        color: #6f6e6e
+        font-weight: 400
+        text-transform: $textTransform
+        line-height: 12px
+        font-size: 13px
+
+      .price
+        color: $colorPink
+        font-size: 16px
+        font-weight: 700
+        text-transform: $textTransform
+        margin-top: 17px
+        line-height: 16px
+
+
+
+.product-promo
+  margin-top: 110px
+  width: 100%
+  height: 341px
+  background-color: #222224
+
+  .container
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .promo-info
+      display: block
+      width: 309px
+      text-align: center
+      transition: 1s
+
+      &:hover
+        filter: invert(100%)
+      &:hover .promo-info-h4
+        color: #2ba1bd
+      &:hover .promo-info-p
+        color: $colorBlack
+
+      .img
+        width: 45px
+        height: 32px
+        background-color: $colorPink
+
+    .promo-info-article
+      .promo-info-h4
+        margin-top: 32px
+        color: #fbfbfb
+        transition: 1s
+        font-size: 20px
+        font-weight: 700
+        letter-spacing: 0.5px
+
+      .promo-info-p
+        transition: 1s
+        color: #fbfbfb
+        font-size: 14px
+        font-weight: 300
+        line-height: 24px
+        letter-spacing: 0.3px
+        text-align: justify
+        margin-top: 17px
