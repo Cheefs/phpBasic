@@ -1,0 +1,1265 @@
+@import "variables"
+@import "mixins"
+@import "animations"
+
+*
+  margin: 0
+  padding: 0
+
+input
+  outline: none
+select
+  cursor: pointer
+button
+  @extend input
+body
+  +font-style($colorBlack,$bodyFontFamily)
+a
+  text-decoration: none
+  color: $colorBlack
+nav
+  background-color: $colorWhite
+
+.hide
+  display: none !important
+.text
+  &.text_center
+    text-align: center
+  &.text_marked
+    color: $colorPink
+    text-decoration: underline
+
+.admin__controls
+  display: flex
+  justify-content: center
+  .admin__btn
+    display: block
+    border: 1px solid transparent
+    background-color: white
+    border-radius: 0 3px 3px 0
+    color: white
+    text-transform: uppercase
+    font-weight: bold
+    cursor: pointer
+    font-size: 12px
+    padding: 2px 6px
+    margin: 0 2px
+    transition: 0.5s
+
+    &.btn_primarry
+      border: 1px solid $colorGray-middle
+      background-color: $colorGray-middle
+      &:hover
+        border: 1px solid $colorGray-middle
+        background-color: white
+        color: $colorGray-middle
+
+    &.btn_danger
+      border: 1px solid #f16d7f
+      background-color: #f16d7f
+      &:hover
+        border: 1px solid #f16d7f
+        background-color: white
+        color: #f16d7f
+.review_status
+  font-size: 15px
+  font-weight: bold
+  position: absolute
+  right: 10px
+  top: 3px
+  color: green
+
+.nav__panel
+  width: 30%
+  border-left: 1px solid #f7f7f7
+  //transition: 1s
+  .nav__element
+    transition: 0.5s
+    margin: 5px
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 20px
+    background-color: #f8f8f8
+    color: #222222
+    border: 1px solid transparent
+    cursor: pointer
+    &.active
+      color: $colorPink
+      border-color: $colorPink
+    &:hover
+      color: $colorPink-hover
+
+.my-data_container
+  width: 100%
+  .btn_save
+    display: flex
+    align-items: center
+    justify-content: center
+  .edit-data
+    .edit_gender
+      display: block
+      color: #222222
+      font-size: 12px
+      font-weight: 600
+      line-height: 12px
+      text-transform: uppercase
+      text-align: center
+    .gender__block
+      width: 80%
+      display: flex
+      justify-content: center
+      padding: 11px
+      .label
+        margin: 0 10px
+        cursor: pointer
+      .input_checkbox
+        cursor: pointer
+
+.account__control
+  display: flex
+  align-items: center
+  .my-account-btn
+    font-weight: bold
+  .btn-logout
+    transition: 0.5s
+    font-size: 22px
+    padding: 8px
+    text-align: center
+    border: 1px solid #f16d7f
+    border-radius: 5px
+    color: white
+    background-color: #f16d7f
+    cursor: pointer
+    &:hover
+      border-color: #ddd
+      color: #222222
+      background-color: #ffffff
+.help-block
+  text-align: center
+  font-size: 16px
+  color: #ff0d0d
+  margin-top: 10px
+.modal
+  transition: 0.5s
+  position: fixed
+  z-index: 100
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.4)
+
+  .gender__block
+    margin: 10px 0
+    display: flex
+    justify-content: center
+    align-items: center
+    .input_checkbox
+      width: 20px
+      margin: 0 10px
+      height: 20px
+  form
+    &.login-form
+      &.register
+        .input-block
+          margin-top: 0
+        .buttons
+          .btn
+            &.btn_register
+              margin-right: 0
+
+  .modal-content
+    transition: 0.5s
+    background-color: #fefefe
+    margin: 0 auto
+    width: 510px
+    border: none
+    box-shadow: #ddd 1px 1px 8px 1px
+    border-radius: 5px
+
+    &.modal_open
+      animation: openModal 0.8s ease forwards
+    &.modal_close
+      animation: closeModal 0.8s ease forwards
+
+    &.modal__help
+      width: 500px
+      &.modal_open
+        animation: openHelpModal 0.8s ease forwards
+      &.modal_close
+        animation: closeHelpModal 0.8s ease forwards
+
+    .modal__header
+      position: relative
+      height: 30px
+      background-color: #f16d7f
+      border-radius: 5px 5px 0 0
+      padding: 10px
+      .header_text
+        font-weight: bold
+        text-transform: uppercase
+        color: white
+        text-align: center
+        display: block
+        margin-top: 5px
+      .close
+        font-weight: bold
+        color: #fff
+        font-size: 25px
+        position: absolute
+        top: 0
+        right: 11px
+        transition: 0.5s
+        font-style: normal
+        &:hover,
+        &:focus
+          color: black
+          text-decoration: none
+          cursor: pointer
+
+    .modal__body
+      text-align: center
+      padding: 20px
+
+      .info_text
+        font-weight: bold
+        text-transform: uppercase
+
+    .modal__footer
+      padding: 10px
+      text-align: center
+      border-top: 1px solid #ddd
+      height: 35px
+      display: flex
+      align-items: center
+      justify-content: center
+
+      .modal__btn
+        &.btn_confirm
+          border: 1px solid transparent
+          cursor: pointer
+          padding: 8px 30px
+          width: 50px
+          background-color: #b8b7b7dd
+          font-weight: bold
+          color: #fefefe
+          border-radius: 4px
+
+          &:hover
+            border-color: #b8b7b7dd
+            background-color: #fefefe
+            color: #b8b7b7dd
+
+.container
+  +container($containerWidth, $autoMargins)
+  &.my-account
+    display: flex
+    padding: 30px 0
+
+.logo
+  +flexContainer()
+  &:hover
+    animation: logo-animation 1s  linear forwards
+
+.triangleMainStyles
+  width: 7px
+  height: 7px
+  position: absolute
+  content: ""
+
+.brand-name
+  text-transform: $textTransform
+  font-size: 27px
+  font-weight: 300
+  margin-top: 10px
+  margin-left: 13px
+
+  span
+    color: $colorPink
+    font-weight: 700
+
+header
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+  background-color: $colorWhite
+  padding: 30px 0
+  +border-style(#ececec, 1px )
+
+  .header-flex
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+  .header-right
+    +flexContainer()
+    .my-account-btn
+      color: $colorWhite
+      background-color: $colorPink
+      padding: 9px 23px
+      border-radius: 3px
+      //transition: 0.3s ease-in-out
+      box-sizing: border-box
+      border: 1px solid transparent
+
+      &:hover
+        border-color: $colorGray-dark
+        color: $colorBlack
+        background-color: $colorWhite
+
+    .triangle
+      z-index: 11
+      position: absolute
+      content: ""
+      left: 41px
+      top: 35px
+      border: 5px solid transparent
+      border-bottom: 5px solid #fbfbfb
+    .cart-btn-block
+      padding: 3px 26px
+      a
+        display: block
+
+    .cart-image
+      position: relative
+
+    .cart-items
+      display: none
+      position: absolute
+      width: 280px
+      height: 460px
+      border-radius: 5px
+      background-color: $colorWhite
+      left: -33px
+      border: solid 1px #ddd
+      top: 40px
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08)
+      z-index: 10
+
+      &.active
+        display: block
+
+      .btn-remove-item
+        i
+          margin-top: 35px
+          color: #c0c0c0
+          &:hover
+            color: $colorPink
+
+      .bottom-block
+        padding: 0 17px 13px
+
+        .cart-total-price
+          display: flex
+          justify-content: space-between
+          color: #222222
+          font-size: 16px
+          font-weight: 700
+          text-transform: $textTransform
+
+        .cart-btn
+          text-align: center
+          padding: 16px
+          font-size: 14px
+          font-weight: 700
+          text-transform: $textTransform
+          background-color: $colorWhite
+
+          transition: 0.4s
+
+        .btn-to-cart
+          display: block
+          margin-top: 11px
+          border: 1px solid #eaeaea
+
+          color: #4a4a4a
+
+          &:hover
+            color: white
+            background-color: #bebebf
+
+        .btn-check-out
+          margin-top: 32px
+          border: 1px solid $colorPink
+          color: $colorPink
+          &:hover
+            background-color: $colorPink
+            color: white
+
+      &:before
+        @extend .triangleMainStyles
+        +triangle-top($colorWhite, $minBorder-width,$colorGray-dark, $triangleAngle )
+        left: 72px
+        top: -5px
+
+      .top-block
+        margin: 21px 15px
+        //width: 230px
+        overflow: auto
+        height: 240px
+        max-height: 500px
+
+        .in-cart-item
+          width: 230px
+          height: 102px
+          margin-top: 16px
+          display: flex
+          border-bottom: solid $minBorder-width #ededed
+
+          //.item-photo
+          //  transition: 1s
+          //  &:hover
+          //    transform: skew(-3deg)
+          //    box-shadow: $colorGray-middle 1px 1px 20px 0
+          .item-container
+            width: 144px
+            display: flex
+            justify-content: space-between
+            margin-left: 15px
+
+            &:first-child
+              margin-top: 0
+
+            span i
+              color: #e4af48
+              font-size: 12px
+              margin: 11px 0
+
+            h2
+              font-size: 12px
+              font-weight: 700
+              text-transform: $textTransform
+
+            .item-info
+              margin-top: 10px
+
+            h3
+              color: $colorPink
+              font-size: 12px
+              font-weight: 400
+              text-transform: $textTransform
+            span i:hover
+              color: #ff7d00
+
+      .cart__photo
+        width: 72px
+        height: 85px
+        overflow: hidden
+        display: flex
+        justify-content: center
+        .item-photo
+          height: 100%
+          margin-bottom: 16px
+
+    .cart-items-total
+      position: absolute
+      width: 18px
+      display: block
+      height: 18px
+      background-color: $colorPink
+      color: $colorWhite
+      font-size: 12px
+      font-weight: 700
+      line-height: 18px
+      text-align: center
+      border-radius: 50%
+      top: -4px
+      left: 48px
+      letter-spacing: 0.3px
+
+      animation: cart-count 3s infinite
+
+  .header-left
+    +flexContainer()
+    .header-form
+      height: 38px
+      input
+        width: 259px
+        height: 100%
+        border: 1px solid #e6e6e6
+        background-color: $colorWhite
+        padding: 0 15px
+        color: #a4a4a4
+        border-left: none
+
+      .select
+        border-radius: 3px
+        height: 100%
+        width: 403px
+        display: flex
+        align-items: center
+        margin-left: 37px
+        border: 1px solid #e6e6e6
+        background-color: #cdcdcc
+        background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+
+        .browse-container
+          //&:hover .browse-items
+          //  display: block
+          &:hover .browse
+            background-color: #83838352
+
+          &:hover .browse:after
+            border-top-color: $colorWhite
+
+          .browse
+            position: relative
+            display: block
+            border-right: 1px solid #ddd
+            padding: 11px 23px 11px 15px
+            font-size: 14px
+            border-radius: 3px 0 0 3px
+            font-weight: 500
+            letter-spacing: 0.35px
+            transition: 0.5s
+
+            &:hover
+              color: $colorWhite
+
+            &:after
+              content: ""
+              border: 4px solid transparent
+              border-top: 4px solid #a4a4a4
+              position: absolute
+              top: 18px
+              margin-left: 8px
+              color: #838383
+              transition: 1s
+      .find-btn
+        display: block
+        border-radius: 0 3px 3px 0
+        background-color: $colorWhite
+        color: #a4a4a4
+        font-size: 14px
+        font-weight: 400
+        transition: 0.5s
+
+        .fa-search
+          padding: 12px 10px
+
+        &:hover
+          color: $colorWhite
+          background-color: #ccc6c654
+
+        .browse-menu li a:hover
+          color:  $colorPink
+
+.browse-items
+  z-index: 1
+  background-color: $colorWhite
+  width: 262px
+  border-radius: 5px
+  box-shadow: 1px -1px 5px 0 rgba(0, 0, 0, 0.16)
+  //display: none
+  position: absolute
+  top: 100%
+  padding-bottom: 20px
+
+  &:before
+    @extend .triangleMainStyles
+    +triangle-top( $colorWhite, $minBorder-width, $colorGray-dark, $triangleAngle )
+    left: 72px
+    top: -5px
+
+  .browse-menu
+    h3
+      border-bottom: solid 1px #ddd
+      width: 85%
+      margin-left: 13px
+      padding-bottom: 10px
+      padding-top: 19px
+      color: $colorBlack-h3
+      font-size: 14px
+      font-weight: 600
+      text-transform: $textTransform
+      letter-spacing: 0.35px
+    ul
+      margin-top: 2px
+      list-style-type: none
+      color: $colorGray
+      font-size: 14px
+      font-weight: 400
+      letter-spacing: 0.35px
+
+    .browse-menu-li
+      list-style-type: none
+      color: $colorGray
+      font-size: 14px
+      font-weight: 400
+      letter-spacing: 0.35px
+      line-height: 28px
+      margin-left: 13px
+      width: 85%
+      &:hover
+        background-color: $colorGray
+
+      a:hover
+        color: $colorPink
+
+.menu
+  display: flex
+  justify-content: center
+  list-style-type: none
+  height: 47px
+  align-items: center
+
+  .menu-list
+    position: relative
+
+    .menu-link
+      font-size: 14px
+      font-weight: 700
+      line-height: 26px
+      text-transform: $textTransform
+      padding: 15px 25px
+
+      &:hover
+        color: $colorPink
+
+    &:hover .mega-menu
+      display: flex
+      z-index: 10
+
+.mega-menu
+  display: none
+  position: absolute
+  padding-bottom: 19px
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08)
+  border: 1px solid #e9e9e9
+  padding-right: 26px
+  left: -37px
+
+  .mega-menu-incide
+    width: 235px
+    margin-top: 14px
+    margin-left: 25px
+    margin-right: 12px
+
+    .mega-menu-img
+      margin-top: 22px
+      width: 255px
+      height: 118px
+      background: url('../images/mega-menu-img.jpg')
+      font-weight: 600
+      +editedFlex( flex-end, flex-end )
+      transition: 1s
+
+      &:hover
+        transform: scale(0.9)
+        box-shadow: $colorGray-middle 1px 1px 10px 10px
+
+      span
+        display: block
+        font-weight: 600
+        margin-right: 10px
+        margin-bottom: 12px
+        width: 71px
+        color: $colorWhite
+        font-size: 22px
+        text-transform: $textTransform
+        letter-spacing: 0.55px
+
+    h3
+      border-bottom: $minBorder-width solid $colorGray-dark
+      color: $colorBlack-h3
+      font-size: 14px
+      font-weight: 600
+      line-height: 32px
+      text-transform: $textTransform
+      letter-spacing: 0.35px
+
+    & ul
+      list-style-type: none
+      color: $colorGray-middle
+      font-size: 14px
+      font-weight: 400
+      line-height: 28px
+      letter-spacing: 0.35px
+      li:hover
+        background-color: #a4a4a41c
+        color: $colorPink
+
+        a:hover
+          color: $colorPink
+
+  &:before
+    @extend .triangleMainStyles
+    +triangle-top( $colorWhite, $minBorder-width, $colorGray-dark, $triangleAngle)
+    left: 11%
+    top: -5px
+  &:last-of-type
+    left: -200px
+    &:before
+      left: 30%
+
+
+.promo
+  background-color: $color-promoBg
+  & .promo-content
+    background-image: url('../images/promo.jpg')
+    height: 613px
+    background-position-y: -52px
+    transition: 1s ease
+    &:hover
+      transform: scale(0.9) translate(0,32px)
+
+  & .promo-text
+    float: left
+    margin-top: 224px
+    border-left: 12px solid $colorPink
+    padding-left: 19px
+
+    .promo-h2
+      font-size: 60px
+      font-weight: 700
+      line-height: 40px
+      margin-bottom: 20px
+
+    .promo-h3
+      font-size: 40px
+      font-weight: 700
+      line-height: 33px
+
+      span
+        color: $colorPink
+
+
+.container
+  .body-content
+    .content-hot
+      flex-direction: column
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      height: 823px
+      margin-top: 98px
+
+      a
+        transition: 1s
+
+        &:hover
+          filter: brightness(75%)
+          transform: scale(1.05)
+
+      .text
+        width: 135px
+        margin-top: 26px
+        padding: 16px 20px
+        font-size: 18px
+        font-weight: 900
+        background-color: $colorWhite
+        text-transform: $textTransform
+
+        span
+          color: $colorPink
+          font-size: 30px
+          display: block
+          text-transform: $textTransform
+
+      .new-arrivals
+        display: block
+        width: 560px
+        height: 542px
+        background: url('../images/new.jpg')
+
+        & .new-arrivals-text
+          padding: 16px 20px
+          width: 140px
+
+      .hot-deal
+        display: block
+        width: 560px
+        height: 542px
+        margin-right: 20px
+        background: url('../images/hot-deal.jpg')
+
+      .offer-deal
+        display: block
+        width: 560px
+        height: 261px
+        background: url('../images/offer-deal.png')
+
+        .offer-deal-text
+          padding: 16px 19px
+          width: 124px
+
+      .trendy
+        display: block
+        width: 560px
+        height: 261px
+        background-color: #dadad2
+
+        .trendy-text
+          padding: 16px 19px
+          width: 189px
+          height: 50px
+          float: left
+
+        .trendy-img
+          background: url(../images/trendy.jpg) no-repeat
+          height: 240px
+          background-position-x: 160px
+
+    section
+      .featured-text
+        margin-top: 100px
+        margin-bottom: 60px
+        text-align: center
+      h1
+        font-size: 30px
+        font-weight: 700
+      p
+        margin-top: 16px
+        color: #9f9f9f
+        font-weight: 400
+        font-size: 14px
+
+      .featured-container
+        height: 745px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        overflow: hidden
+
+        .product-item
+          width: 261px
+          height: 342px
+          margin-bottom: 39px
+          position: relative
+
+          .item
+            display: block
+            width: 261px
+            transition: 0.6s
+
+            .item-photo
+              height: 280px
+              background-position: center
+              background-size: cover
+              background-repeat: no-repeat
+
+            .item-text
+              padding: 15px
+
+            .item-name
+              margin-bottom: 10px
+              font-size: 13px
+              font-weight: 700
+              text-transform: $textTransform
+
+            .item-price
+              color: $colorPink
+              font-size: 16px
+              font-weight: 700
+              text-transform: $textTransform
+
+          &:hover .item
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+            transform: scale(1.02) translate(10px, 0)
+
+          &:hover .to-cart
+            display: block
+          &:hover .item .item-photo
+            filter: brightness(50%)
+
+        .to-cart
+          position: absolute
+          top: 94px
+          left: 70px
+          width: 123px
+          height: 39px
+          border: $minBorder-width solid $colorWhite
+          display: none
+          color: $colorWhite
+          font-size: 13px
+          font-weight: 700
+          line-height: 39px
+          text-align: center
+          transition: 0.6s
+
+          &:hover
+            background: #ffffff5e
+            transform: scale(1.1) translate(2px)
+
+          .cart
+            right: 5px
+            top: 5px
+            position: relative
+
+    .btn-allproducts-container
+      text-align: center
+      margin-top: 40px
+
+      .btn-all-products
+        background-color: $colorPink
+        color: $colorWhite
+        font-size: 16px
+        font-weight: 700
+        line-height: 54px
+        padding: 14px 35px
+        transition: 1s
+
+      & a:hover
+        padding: 14px 100px
+        background-color: $colorPink-hover
+
+    .info-container
+      margin-top: 113px
+      height: 529px
+      background-color: #222224
+
+      .content-info
+        display: flex
+        justify-content: space-between
+        height: 100%
+
+        .content-left
+          display: block
+          width: 767px
+          height: 100%
+          background: url(../images/info.jpg)
+          transition: 1s
+          box-sizing: border-box
+
+          &:hover
+            box-shadow: #ffffff47 1px 1px 5px 5px
+            transform: scale(0.98)
+
+          &:hover .info-text
+            transform: scale(1.2) translate(60px, 37px)
+
+          &:hover .info-text h2
+              color: $colorWhite
+
+          .info-text
+            margin-top: 146px
+            margin-left: 39px
+            transition: 2s
+
+            h1
+              color: $colorWhite
+              font-weight: 900
+              font-size: 32px
+              transition: 1s
+
+            h2
+              font-size: 32px
+            span
+              color: $colorPink
+
+        .content-right
+          .shop-info
+            height: 134px
+            width: 294px
+            margin-top: 40px
+            margin-right: 43px
+            .shop-info-right
+              p
+                width: 220px
+                height: 58px
+                color: #fbfbfb
+                font-size: 14px
+                font-weight: 300
+                line-height: 24px
+                letter-spacing: 0.35px
+                display: block
+                float: right
+                text-align: justify
+              h3
+                color: #fbfbfb
+                font-size: 20px
+                font-weight: 700
+
+            .shop-info-left
+              margin-right: 30px
+              width: 45px
+              height: 32px
+              float: left
+
+
+.comments-block
+  margin-top: 97px
+  height: 438px
+  width: 100%
+
+  .bg
+    width: 1609px
+    position: relative
+    margin: 0 auto
+    background: url(../images/bg_bottom.jpg) no-repeat center
+
+    img
+      position: absolute
+      z-index: -1
+      opacity: 0.6
+
+  .container-feed
+    +container(1140px, 0 auto)
+    height: 100%
+
+    .content
+      height: 100%
+      display: flex
+      align-items: center
+
+      .feed-block
+        width: 597px
+        height: 100%
+        border-right: 1px solid #ffff
+
+        .comment
+          display: flex
+          align-items: center
+          justify-content: center
+          margin-top: 111px
+
+          .user-photo
+            display: block
+            width: 83px
+            height: 83px
+            border-radius: 50%
+            transition: 2s
+
+            &:hover
+              transform: scale(1.2)
+              box-shadow: #a4a4a4 1px 1px 3px 3px
+
+          .user-comment
+            width: 386px
+            height: 68px
+            font-size: 16px
+            margin-left: 28px
+            text-align: justify
+
+            .comment-text
+              font-size: 16px
+              font-weight: 600
+              line-height: 26px
+              font-style: italic
+              letter-spacing: 0.4px
+
+            .user-name
+              margin-top: 19px
+              font-size: 12px
+              font-weight: 500
+              transition: 1s
+
+              &:hover a
+                color: $colorPink-hover
+
+              a
+                display: block
+                color: $colorPink
+                font-size: 16px
+                font-weight: 700
+                letter-spacing: 0.4px
+                line-height: 24px
+
+            .comment-nav
+              height: 50px
+              margin-top: 41px
+              display: flex
+
+              .nav-inactive
+                display: block
+                width: 38px
+                height: 4px
+                background-color: #d6d6d6
+                margin-left: 13px
+
+                &:hover
+                  background-color: #3e3e3e
+
+              .nav-active
+                display: block
+                width: 38px
+                height: 4px
+                background-color: $colorPink
+                margin-left: 13px
+
+                &:hover
+                  background-color:  $colorPink-hover
+
+      .subcribe-form
+        .text-block
+          text-align: center
+          margin-bottom: 35px
+          margin-left: 75px
+
+          h1
+            text-transform: $textTransform
+            font-size: 24px
+            line-height: 40px
+            font-weight: 400
+          p
+            font-weight: 400
+            font-size: 14px
+        .subscribe__error
+          color: red
+          position: ABSOLUTE
+          right: 25%
+
+        .email-form
+          width: 386px
+          height: 46px
+          display: flex
+          margin-left: 92px
+
+          input:invalid
+              border: $minBorder-width solid
+              border-color: red
+              box-sizing: border-box
+
+          .email-form-input
+            padding: 0 20px
+            border-radius: 23px 0 0 23px
+            border-color: transparent
+            &.has_error
+              border-color: red
+
+          .btn-subscribe
+            cursor: pointer
+            width: 104px
+            height: 46px
+            border-radius: 0 23px 23px 0
+            background-color: #f16d7f
+            border: navajowhite
+            transition: 0.6s
+            box-sizing: border-box
+
+            &:hover
+              background-color: $colorPink-hover
+
+            span
+              width: 63px
+              height: 10px
+              color: $colorWhite
+              font-size: 14px
+              font-weight: 400
+              letter-spacing: 0.35px
+
+
+.promo-bottom
+  height: 458px
+
+  .content-bottom
+    height: 100%
+    display: flex
+
+  ul
+    list-style-type: none
+
+  .container
+
+    .about
+      width: 438px
+      height: 260px
+      margin-right: 64px
+      margin-top: 109px
+
+      .logo
+        width: 164px
+
+      .about-text
+        display: block
+        width: 427px
+        color: #898989
+        font-size: 14px
+        font-weight: 300
+        line-height: 24px
+        letter-spacing: 0.35px
+        text-align: justify
+        margin-top: 29px
+
+        .about-text-p
+          display: block
+          margin-bottom: 20px
+
+    .content-bottom-nav
+      display: flex
+      width: 100%
+      justify-content: space-between
+
+      .nav-menu
+        padding: 0 20px
+
+      li
+        a
+          display: block
+          color: #898989
+          font-size: 16px
+          font-weight: 400
+          letter-spacing: 0.4px
+          line-height: 42px
+          transition: 0.5s
+
+          &:hover
+            color: $colorPink
+            transform: scale(1.2)
+      h3
+        color: $colorPink
+        font-size: 18px
+        font-weight: 700
+        text-transform: $textTransform
+        line-height: 14px
+        margin-top: 123px
+        margin-bottom: 45px
+
+
+footer
+  height: 79px
+  background-color: #e6e6e6
+
+  .container
+    +editedFlex(space-between, center)
+    height: 100%
+    margin: 0 auto
+
+    .footer-right
+      width: 260px
+      color: #7a7a7a
+      font-size: 16px
+      font-weight: 400
+      line-height: 42px
+      letter-spacing: 0.4px
+      +editedFlex(unset,center)
+      height: 100%
+
+    .footer-left
+      +editedFlex(space-between, center)
+      width: 191px
+
+      .social-btn
+        cursor: pointer
+        display: block
+        height: 32px
+        width: 32px
+        background-color: $colorWhite
+        transition: 8s
+
+        &:hover
+          transform: rotateZ(360deg)
+
+        i
+          +editedFlex(center,center)
+          height: 32px
+          color: #b2b2b2
+          font-size: 16px
+          font-weight: 400
+          line-height: 42px
+          letter-spacing: 1.4px
+          transition: 0.5s
+
+        &:hover i
+          background: $colorPink
+          color: $colorWhite
+        &.in
+          filter: brightness(85%)
+
+
+@import "product"
+@import "singlePage"
+@import "cart"
+@import "checkout"
