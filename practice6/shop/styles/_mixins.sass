@@ -1,0 +1,26 @@
+=font-style($color,$font)
+  font-family: $font
+  color: $color
+
+=border-style($color,$size )
+  border: $size solid #ececec
+
+=container($width, $margin)
+  width: $width
+  margin: $margin
+
+=flexContainer()
+  display: flex
+  position: relative
+  align-items: center
+
+=editedFlex($content, $align )
+  display: flex
+  justify-content: $content
+  align-items: $align
+
+=triangle-top( $color,$border-width, $border-color, $angle )
+  border-top: $border-width solid $border-color
+  border-left: $border-width solid $border-color
+  background-color: $color
+  transform: rotate($angle)
