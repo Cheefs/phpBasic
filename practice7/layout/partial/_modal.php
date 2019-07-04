@@ -55,21 +55,20 @@
                 </div>
             </div>
         </div>
+<?php endif; ?>
 
-    <?php elseif($_SESSION['modalShow'] == true): ?>
-        <div id="modalHelp" class="modal">
+        <div id="modalHelp" class="modal hide">
             <div class="modal-content modal__help modal_open">
                 <div class="modal__header">
-                    <h3 class="header_text"><?= $_SESSION['isError']? 'Error' : 'Success' ?></h3>
-                    <a href="/engine/modal.php" class="close">&times;</a>
+                    <h3 class="header_text"></h3>
+                    <span class="close">&times;</span>
                 </div>
                 <div class="modal__body">
-                    <p class="info_text"><?= $_SESSION['message'] ?></p>
+                    <p class="info_text"></p>
                 </div>
                 <div class="modal__footer">
-                    <a href="/engine/modal.php" class="modal__btn btn_confirm">OK</a>
+                    <div  class="modal__btn btn_confirm">OK</div>
                 </div>
             </div>
         </div>
-    <?php endif; ?>
 </div>

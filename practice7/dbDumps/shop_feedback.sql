@@ -29,7 +29,7 @@ CREATE TABLE `feedback` (
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `feedback` (
 
 LOCK TABLES `feedback` WRITE;
 /*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
-INSERT INTO `feedback` VALUES (1,'test','test',0),(2,'test2','test2',0),(13,'NewNOT464646464fgfgfgfgfgf','NOT NEW554',2),(15,'343434343','3w455',1),(16,'fgfgfgfg','fgfgfg',2),(17,'fgfg','fgfgf',2),(18,'fgfgf','fgfg',2),(19,'fgfgf','fgfgfg',2);
+INSERT INTO `feedback` VALUES (1,'test','test',0),(2,'test2','test2',0),(12,'NewOLD','NewOLD',2),(13,'NewNOT','NOT NEW',2);
 /*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-04 20:16:38
+-- Dump completed on 2019-06-22 14:58:55

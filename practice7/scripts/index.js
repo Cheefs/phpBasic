@@ -1,4 +1,4 @@
-function sendRequest(url, data) {
+function sendRequest(url, data = null) {
     return fetch(url, {
         method: 'POST',
         body: data,
@@ -43,18 +43,32 @@ if ($loginButton) {
     });
 }
 
-// const $productsContainer = document.querySelector('.product-block');
-// $productsContainer.addEventListener('click', (e) => {
-//      const $target = e.target;
-//      if ($target.classList.contains('add-to-cart') || $target.parentElement.classList.contains('add-to-cart')) {
-//          const url = $target.classList.contains('add-to-cart')?
-//              $target.getAttribute('href') : $target.parentElement.getAttribute('href');
-//          e.preventDefault();
-//          sendRequest(url).then((v) => {
-//              // if ( v.result )
-//                  // return  window.location.href = 'my-account.php';
-//              // document.querySelector('.help-block').textContent = v.message;
-//          });
-//      }
-// });
+const $productsContainer = document.querySelector('.product-block');
+$productsContainer.addEventListener('click', (e) => {
+     const $target = e.target;
+     if ($target.classList.contains('add-to-cart') || $target.parentElement.classList.contains('add-to-cart')) {
+         const url = $target.classList.contains('add-to-cart')?
+             $target.getAttribute('href') : $target.parentElement.getAttribute('href');
+         e.preventDefault();
+         sendRequest(url).then(({ result ,message}) => {
+             const $modal = document.getElementById('modalHelp');
+             $modal.classList.remove('hide');
+             $modal.querySelector('.header_text').textContent = result? 'Success' : 'Warning';
+             $modal.querySelector('.info_text').textContent = message;
+
+         });
+     }
+});
+
+const $modalContainer = document.querySelector('.modal__container');
+if ($modalContainer) {
+    $modalContainer.addEventListener('click', ({ target }) => {
+        console.log(target);
+        if (target.classList.contains('btn_confirm') || target.classList.contains('close')
+            || target.classList.contains('modal__container')) {
+            location.reload();
+        }
+    });
+}
+
 

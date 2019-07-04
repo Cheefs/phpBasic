@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-
-//var_dump($_POST); die();
 require_once $_SERVER['DOCUMENT_ROOT'].'/conf/init.php';
 include WEB_ROOT.'/engine/helpers/validate.php';
 include WEB_ROOT.'/engine/helpers/location.php';
@@ -30,13 +28,17 @@ if (isset($_GET['product_id']) && is_numeric($_GET['product_id'])) {
             } else {
                 $query = sprintf("INSERT INTO `shop`.cart (product_id, user_id, is_guest) VALUES(%d, %d, %d)", $id, $user_id, $is_guest);
             }
-
             $result = mysqli_query($connect, $query);
         }
         mysqli_close($connect);
-        scenarioDone('PRODUCT ADD TO YOUR CART', true);
+        echo json_encode([
+            'result' => true,
+            'message' => 'PRODUCT ADD TO YOUR CART'
+        ]);
     } else {
-        scenarioDone('NO DB CONNECTION PLEASE TRY AGAIN LETTER', true, true);
+        echo json_encode([
+            'result' => false,
+            'message' => 'NO DB CONNECTION PLEASE TRY AGAIN LETTER'
+        ]);
     }
 }
-session_write_close();

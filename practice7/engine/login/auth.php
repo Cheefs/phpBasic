@@ -6,7 +6,6 @@ include WEB_ROOT.'/engine/helpers/validate.php';
 include WEB_ROOT.'/engine/helpers/location.php';
 include WEB_ROOT.'/engine/helpers/guestUser.php';
 
-
 $username = $_POST['username']?? null;
 $password = $_POST['password']?? null;
 
