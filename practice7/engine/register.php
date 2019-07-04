@@ -1,8 +1,9 @@
 <?php
-
-include 'helpers/validate.php';
-include 'helpers/location.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/conf/init.php';
+include WEB_ROOT.'/engine/helpers/validate.php';
+include WEB_ROOT.'/engine/helpers/location.php';
+include WEB_ROOT.'/engine/helpers/guestUser.php';
+
 session_start();
 
 $username = $_POST['username']?? null;
@@ -19,12 +20,13 @@ if (checkValue($username) && checkValue($password) && checkValue($email) && chec
     $connect = dbConnect();
 
     if (!is_null($connect)) {
-        $query = sprintf("INSERT INTO `shop`.users (username,password,email,name) VALUES (\"%s\", \"%s\", \"%s\", \"%s\")",
-            $username, $password, $email, $name);
+        $query = sprintf("INSERT INTO `shop`.users (username,password,email,name) VALUES (\"%s\", \"%s\", \"%s\", \"%s\")", $username, $password, $email, $name);
         $result = mysqli_query($connect, $query);
 
         if ($result){
-            $_SESSION['userId'] = $connect->insert_id;
+            $newId = $connect->insert_id; // id полученное при регистрации
+            getGuestCart($_SESSION['userId'], $newId, $connect);
+            $_SESSION['userId'] = $newId;
             $_SESSION['isGuest'] = false;
             $_SESSION['modalShow'] =  false;
 
@@ -32,17 +34,8 @@ if (checkValue($username) && checkValue($password) && checkValue($email) && chec
         }
         mysqli_close($connect);
     } else {
-        $_SESSION['modalShow'] = true;
-        $_SESSION['isError'] = true;
-        $_SESSION['message'] = 'DB error';
-        location('/index');
+        scenarioDone('DB error', true,true);
     }
-
 } else {
-    $_SESSION['message'] = 'You must fill all fields';
-    $_SESSION['modalShow'] =  true;
-    $_SESSION['isError'] = true;
-    location('/index.php');
+    scenarioDone('You must fill all fields', true,true);
 }
-
-session_write_close();

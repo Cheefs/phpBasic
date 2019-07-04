@@ -1,7 +1,6 @@
 
 <div class="modal__container">
-    <?php if ($_SESSION['isGuest'] && $_SESSION['modalShow'] && !$_SESSION['isError']): ?>
-
+    <?php if ( !$_SESSION['message'] && $_SESSION['isGuest'] && $_SESSION['modalShow'] && !$_SESSION['isError']): ?>
         <div id="modalWindow" class="modal">
             <div class="modal-content modal_open">
                 <div class="modal_login">
@@ -44,17 +43,8 @@
 
                                 <label class="input-block-label" for="email-addresRegister">EMAIL ADDRESS<span class="label-span">*</span></label>
                                 <input class="input-block-input" name="email" type="email" id="email-addresRegister">
-
-<!--                                <div class="gender__block">-->
-<!--                                    <label class="input-block-label" for="genderMan">MAN</label>-->
-<!--                                    <input class="input_checkbox man" value="man" type="checkbox" id="genderMan">-->
-<!--                                    <label class="input-block-label" for="genderWoman">WOMEN</label>-->
-<!--                                    <input class="input_checkbox woman" value="woman" type="checkbox" id="genderWoman">-->
-<!--                                </div>-->
-                                <label class="input-block-label"  for="nameInput">Name</label>
+                                <label class="input-block-label" for="nameInput">Name</label>
                                 <input class="input-block-input" name="name" type="text" id="nameInput">
-<!--                                <label class="input-block-label"  for="bioRegister">BIO</label>-->
-<!--                                <textarea class="input-block-input textarea" data-rule="bio" id="bioRegister"></textarea>-->
                             </div>
                             <div class="required-info">* Required Fileds</div>
                             <div class="buttons">

@@ -1,13 +1,16 @@
 <?php
-session_start();
-   $_SESSION['userId'] = $_SESSION['userId']?? null;
-   $_SESSION['message'] =  $_SESSION['message']?? '';
-   $_SESSION['isGuest'] = $_SESSION['isGuest']?? true;
-   $_SESSION['isError'] =   $_SESSION['isError']?? false;
-   $_SESSION['modalShow'] =$_SESSION['modalShow']?? false;
-
 require_once 'conf/init.php';
+include WEB_ROOT.'/engine/helpers/guestUser.php';
+
 const IMG_DIR = '/images';
+
+session_start();
+   $_SESSION['isGuest'] = $_SESSION['isGuest']?? true;
+   $_SESSION['userId'] = $_SESSION['userId']?? getRndId();
+   $_SESSION['message'] = $_SESSION['message']?? '';
+   $_SESSION['isError'] = $_SESSION['isError']?? false;
+   $_SESSION['modalShow'] = $_SESSION['modalShow']?? false;
+
 
 $connect = dbConnect();
 if (!is_null($connect)) {

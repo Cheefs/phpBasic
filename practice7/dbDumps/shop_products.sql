@@ -32,7 +32,7 @@ CREATE TABLE `products` (
   `desc` mediumtext,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Mango T-shirt','images/Layer_43.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(2,'People T-shirt','images/Layer_4.jpg','50','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(3,'Mango','images/Layer_44.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(4,'Mango T-shirt','images/Layer_45.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(5,'Mango T-shirt','images/Layer_46.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(6,'Mango T-shirt','images/Layer_47.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(7,'Mango T-shirt','images/Layer_48.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(8,'Mango T-shirt','images/Layer_49.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(9,'Mango T-shirt','images/Layer_50.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.');
+INSERT INTO `products` VALUES (1,'Mango T-shirt','images/Layer_43.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(2,'People T-shirt','images/Layer_4.jpg','50','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(3,'Mango','images/Layer_44.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(4,'Mango T-shirt','images/Layer_45.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(5,'Mango T-shirt','images/Layer_46.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(6,'Mango T-shirt','images/Layer_47.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(7,'Mango T-shirt','images/Layer_48.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(8,'Mango T-shirt','images/Layer_49.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(9,'Mango T-shirt','images/Layer_50.jpg','52','BINBURHAN','COTTON',' Compellingly actualize fully researched processes before proactive outsourcing.'),(10,'','','',NULL,NULL,' Compellingly actualize fully researched processes before proactive outsourcing.');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-29 12:43:18
+-- Dump completed on 2019-06-22 14:58:55
