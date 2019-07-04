@@ -4,7 +4,7 @@ const ACTION_CREATE = 0;
 const ACTION_UPDATE = 1;
 const ACTION_DELETE = 2;
 
-require_once 'conf/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/conf/init.php';
 
 function doFeedbackAction($params, $mode) {
     $query = null;
@@ -45,7 +45,7 @@ function sendDbRequest($query, $product_id) {
     $connect = dbConnect();
     $result = mysqli_query($connect, $query);
     if ($result) {
-        header("Location: /shop/view.php?id={$product_id}&#comments");
+        header("Location: /view.php?id={$product_id}&#comments");
         exit();
     } else {
         echo 'Request Error';

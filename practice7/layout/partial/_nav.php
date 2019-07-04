@@ -48,7 +48,8 @@
                         </ul>
 
                         <div class="mega-menu-img">
-                            <span>Super sale!</span></div>
+                            <span>Super sale!</span>
+                        </div>
                     </div>
                 </nav>
             </li>
@@ -96,8 +97,9 @@
                             <li><a href="/index.php">Jackets/Coats</a></li>
                         </ul>
 
-                        <div class="mega-menu-img"><span>Super
-                                            sale!</span></div>
+                        <div class="mega-menu-img">
+                            <span>Super sale!</span>
+                        </div>
                     </div>
                 </nav>
             </li>
