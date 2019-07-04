@@ -1,0 +1,279 @@
+@import "mixins"
+@import "variables"
+
+.cart-container
+  height: 500px
+  overflow-y: auto
+
+.cart-products
+  height: 529px
+  margin-top: 90px
+
+  .table-row
+    padding: 21px 0
+    border-bottom: 1px solid $colorWhite-2
+    color: #222222
+    font-size: 13px
+    font-weight: 700
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .product-details
+      display: flex
+
+      .photo-link
+        width: 100px
+        height: 115px
+        background-color: rgba(101, 169, 200, 0.09)
+        background-color: #d1d1d1
+        transition: 0.5s
+
+        .photo
+          height: 100%
+          .photo_img
+            width: 100%
+            height: 100%
+
+      .product-desc
+        width: 157px
+        font-size: 13px
+        font-weight: 400
+        margin-top: 13px
+        line-height: 13px
+        margin-left: 21px
+
+        h3
+          font-size: 13px
+          font-weight: 600
+          text-transform: $textTransform
+          margin-bottom: 38px
+
+        h4
+          font-size: 13px
+          line-height: 13px
+          color: #575757
+          font-weight: 600
+          margin-bottom: 8px
+
+          span
+            font-weight: 300
+            margin-left: 10px
+
+      &:hover a
+        transform: scale(1.2) translate(11px,-6px)
+        box-shadow: #ddd 1px 1px 2px 2px
+
+    .buing-info
+      display: flex
+      justify-content: space-between
+      width: 600px
+
+
+      .buing-info-div
+        color: #656565
+        font-size: 13px
+        font-weight: 400
+        line-height: 20px
+
+        .fa-times-circle
+          cursor: pointer
+          color: #c0c0c0
+          font-size: 16px
+          text-transform: $textTransform
+          transition: 0.2s
+
+          &:hover
+            color: $colorPink-hover
+
+      .buing-info-input
+        height: 30px
+        width: 50px
+        //height: 28px
+        //width: 32px
+        border: $minBorder-width solid $colorWhite-2
+        background-color: $colorWhite
+        display: flex
+        align-items: center
+        justify-content: center
+        //text-align: center
+        padding: 0 10px
+        color: #656565
+
+.cart-form-container
+  margin-top: 44px
+
+  .top-block
+    display: flex
+    justify-content: space-between
+
+    .top-block-a
+      color: #4a4a4a
+      font-size: 14px
+      font-weight: 700
+      text-transform: $textTransform
+      display: block
+      padding: 16px 28px
+      border: 1px solid $colorWhite-2
+      background-color: $colorWhite
+      transition: 0.2s ease
+
+      &:hover
+        background-color: $colorPink
+        color: $colorWhite
+
+  .cart-bottom-block
+    display: flex
+    justify-content: space-between
+
+  .address-block
+    width: 355px
+
+    .adress-select
+      width: 355px
+      border: 1px solid $colorWhite-2
+      background-color: $colorWhite
+      padding: 13px
+      color: #bdbdbd
+
+    h3
+      margin-top: 63px
+      color: #222222
+      font-size: 16px
+      font-weight: 700
+      text-transform: uppercase
+      margin-bottom: 22px
+
+    input
+      margin-top: 20px
+      width: 327px
+      border: 1px solid $colorWhite-2
+      background-color: $colorWhite
+      padding: 13px
+
+      &::placeholder
+        color: $colorPlaceholder
+        font-size: 13px
+        font-weight: 300
+    a
+      display: block
+      color: #4a4a4a
+      font-size: 11px
+      font-weight: 700
+      text-transform: uppercase
+      width: 75px
+      border: 1px solid $colorWhite-2
+      background-color: $colorWhite
+      padding: 10px
+      margin-top: 23px
+
+      &:hover
+        background-color: $colorPink-hover
+        color: $colorWhite
+
+  .cart-bottom-block-a
+    display: block
+    color: #4a4a4a
+    font-size: 11px
+    font-weight: 700
+    text-transform: uppercase
+    border: 1px solid #eaeaea
+    background-color: #ffffff
+    padding: 10px
+    margin-top: 23px
+    width: 90px
+    transition: 0.6s
+
+    &:hover
+      background-color: #f16d7f
+      color: #ffffff
+
+  .discount-block
+    width: 355px
+
+    .cart-bottom-block-a
+      display: block
+      color: #4a4a4a
+      font-size: 11px
+      font-weight: 700
+      text-transform: uppercase
+      border: 1px solid #eaeaea
+      background-color: #ffffff
+      padding: 10px
+      margin-top: 23px
+      width: 90px
+      transition: 0.6s
+
+      &:hover
+        background-color: #f16d7f
+        color: #ffffff
+
+    .discount-block-h3
+      margin-top: 63px
+      color: #222222
+      font-size: 16px
+      font-weight: 700
+      text-transform: uppercase
+      margin-bottom: 22px
+
+    .discount-block-input
+      margin-top: 20px
+      width: 327px
+      border: 1px solid #eaeaea
+      background-color: #ffffff
+      padding: 13px
+
+      &::placeholder
+        color: #b1b1b1
+        font-size: 13px
+        font-weight: 300
+
+  .submit-block
+    width: 360px
+    height: 214px
+    background-color: #f5f3f3
+    margin-top: 63px
+
+    span
+      color: #4a4a4a
+      font-size: 11px
+      font-weight: 400
+      text-transform: $textTransform
+      margin-bottom: 14px
+
+    span
+      margin-left: 15px
+    h3
+      span
+        margin-left: 15px
+        color: $colorPink-hover
+        font-size: 16px
+        font-weight: 700
+
+    .total-payment
+      margin: 40px auto 0
+      width: 275px
+      border-bottom: 1px solid #e2e2e2
+      height: 65px
+      text-align: right
+
+    .total-payment-a
+      width: 273px
+      text-align: center
+      padding: 18px 0
+      color: $colorWhite
+      font-size: 16px
+      font-weight: 700
+      line-height: 16px
+      text-transform: $textTransform
+      background-color: $colorPink
+      display: block
+      margin: 10px auto
+      transition: 0.4s
+      box-sizing: border-box
+      border: 1px solid transparent
+
+      &:hover
+        color: $colorPink-hover
+        background-color: $colorWhite
+        border: 1px solid $colorPink-hover

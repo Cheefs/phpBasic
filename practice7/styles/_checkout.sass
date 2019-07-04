@@ -1,0 +1,203 @@
+@import "variables"
+@import "mixins"
+
+.container
+  .checkout-element
+    border-bottom: $minBorder-width solid $color-promoBg
+    cursor: pointer
+
+    .header
+      height: 72px
+      display: flex
+      transition: 1s
+      +editedFlex(unset, center)
+      cursor: pointer
+
+      .header-h3
+        color: $colorBlack
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+
+    .checkout-content
+      //opacity: 0
+      height: 0
+      padding: 0 50px
+      transition: 0.5s
+      overflow: hidden
+
+    .element-content
+      height: 400px
+      overflow: hidden
+      +editedFlex(space-around, usnet)
+
+    h3
+      height: 11px
+      color: $colorBlack
+      font-size: 13px
+      font-weight: 600
+      text-transform: $textTransform
+      transition: 1s
+
+    h5
+      color: #b3b2b2
+      font-size: 13px
+      font-weight: 400
+      margin-top: 15px
+
+    &.selected
+      border-bottom: $minBorder-width solid $color-promoBg
+      background-color: #dddddd5e
+      color: red
+      .header
+        .header-h3
+          transform: translate(443px)
+          display: block
+          color: $colorPink
+
+      .checkout-content
+        color: $colorGray-middle
+        height: 473px
+        animation: checkout-content 1s linear forwards
+
+    //&:hover
+
+
+
+
+.btn
+  display: block
+  border: $minBorder-width solid #eaeaea
+  background-color: $colorWhite
+  margin-top: 38px
+  padding: 15px 0
+  width: 180px
+  text-align: center
+  color: #4a4a4a
+  font-size: 14px
+  font-weight: 700
+  text-transform: $textTransform
+  transition: 0.5s
+  &:hover
+    background-color: $colorPink
+    color: $colorWhite
+
+form
+  //height: 342px
+  //width: 45%
+
+  &.register-form
+    .radio-buttons
+      margin: 32px 0
+      display: flex
+      flex-direction: column
+
+      .radio-input
+        position: relative
+
+        .radio-input
+          width: 14px
+          height: 14px
+          border: 2px solid #555555
+          background-color: $colorWhite !important
+          cursor: pointer
+
+        .radio-label
+          cursor: pointer
+          color: $colorBlack
+          font-size: 12px
+          font-weight: 600
+          text-transform: $textTransform
+          position: absolute
+          top: 2px
+          left: 28px
+
+    .helpers
+      margin-top: 23px
+
+      .helpers-h5
+        cursor: pointer
+        .fas
+          margin-right: 4px
+
+  &.login-form
+    &.my__account
+      width: 100%
+      height: 100%
+      .buttons
+        justify-content: center
+      .form-h5
+        display: block
+        margin-top: 25px
+
+    .register_link
+      cursor: pointer
+      transition: color 0.3s
+      color: $colorPink
+      text-decoration: underline
+      margin: 10px
+      &:hover
+        color: $colorPink-hover
+    .forgot-psswd
+      color: $colorBlack
+      font-size: 14px
+      font-weight: 400
+      line-height: 14px
+
+      &:hover
+        color: $colorPink
+    .input-block
+      margin-top: 27px
+      &.edit-data
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: 0 auto
+        border: 1px solid #f7f7f7
+        border-top: none
+        padding: 0 150px
+
+      .input-block-label
+        display: block
+        color: $colorBlack
+        font-size: 12px
+        font-weight: 600
+        line-height: 12px
+        text-transform: $textTransform
+
+        .label-span
+          color: #ff0d0d
+          font-size: 17px
+          font-weight: 400
+          line-height: 17px
+          margin-left: 3px
+
+      .input-block-input
+        width: 390px
+        height: 45px
+        border: 1px solid #eaeaea
+        background-color: $colorWhite
+        padding: 0 15px
+        margin-top: 16px
+        margin-bottom: 9px
+        &.textarea
+          padding: 10px
+          width: 400px
+
+        &.invalid
+          border: $minBorder-width solid red
+          //box-sizing: border-box
+
+    .required-info
+      color: #ff0d0d
+      font-size: 13px
+      font-weight: 600
+      line-height: 13px
+
+    .buttons
+      margin-top: 32px
+      +editedFlex(unset,center)
+
+      .btn
+        margin-top: 0
+        margin-right: 32px
