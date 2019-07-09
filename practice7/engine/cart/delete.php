@@ -1,26 +1,31 @@
 <?php
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/conf/init.php';
+include WEB_ROOT.'/engine/helpers/validate.php';
+include WEB_ROOT.'/engine/helpers/location.php';
+
 session_start();
 
-$user_id = $_SESSION['userId'];
-require_once $_SERVER['DOCUMENT_ROOT'].'/conf/init.php';
+$user_id = safe($_SESSION['userId']);
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = (int)$_GET['id'];
+    $id = (int)safe($_GET['id']);
+    $is_guest = (int)$_SESSION['isGuest'];
     $connect = dbConnect();
 
     if (!is_null($connect)) {
-        $query = "SELECT * FROM `shop`.products WHERE id=$id;";
+        $query = sprintf("SELECT * FROM `shop`.products WHERE id= %d", $id );
         $result = mysqli_query($connect, $query);
         if ($result) {
             $row = mysqli_fetch_assoc($result);
-            $query = "SELECT * FROM `shop`.cart WHERE product_id=$id AND user_id=$user_id";
+            $query = sprintf("SELECT * FROM `shop`.cart WHERE product_id = %d AND user_id = %d  AND is_guest = %d", $id, $user_id, $is_guest);
             $result = mysqli_query($connect, $query);
             $result = mysqli_fetch_assoc($result);
             if (!is_null($result)) {
                 if ($result['count'] > 1) {
                     $count = $result['count'] - 1;
-                    $query = "UPDATE `shop`.cart SET count = $count WHERE product_id=$id AND user_id=$user_id" ;
+                    $query = sprintf("UPDATE `shop`.cart SET count = %d WHERE product_id = %d AND user_id = %d AND is_guest = %d", $count, $id, $user_id, $is_guest);
                 } else {
-                    $query = "DELETE FROM `shop`.cart WHERE product_id=$id AND user_id=$user_id" ;
+                    $query = sprintf("DELETE FROM `shop`.cart WHERE product_id = %d AND user_id = %d AND is_guest = %d", $id, $user_id, $is_guest);
                 }
                 $result = mysqli_query($connect, $query);
             }
@@ -30,14 +35,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     } else {
         scenarioDone('NO DB CONNECTION PLEASE TRY AGAIN LETTER', true, true);
     }
-}
-
-function scenarioDone($message = null, $modal = false, $error = false) {
-    $_SESSION['modalShow'] = $modal;
-    $_SESSION['isError'] = $error;
-    $_SESSION['message'] = $message;
-    header('Location: /index.php');
-    exit();
 }
 
 session_write_close();

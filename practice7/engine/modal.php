@@ -1,11 +1,14 @@
 <?php
 session_start();
+
+include "helpers/location.php";
+
 if ($_SESSION['modalShow'] == true) {
     $_SESSION['modalShow'] = false;
+    $_SESSION['message'] = null;
 } else {
     $_SESSION['modalShow'] = true;
 }
-header('Location: /index.php');
-session_write_close();
-exit();
+location('/index.php');
+
 

@@ -2,11 +2,12 @@
 session_start();
 
 require_once 'conf/init.php';
+include  WEB_ROOT.'/engine/helpers/location.php';
 const IMG_DIR = '/images';
 
 $connect = dbConnect();
 if (!is_null($connect) && isset($_SESSION['userId']) && is_numeric($_SESSION['userId'])) {
-    $query = "SELECT * FROM `shop`.users WHERE id={$_SESSION['userId']};";
+    $query = sprintf("SELECT * FROM `shop`.users WHERE id= %d", $_SESSION['userId']);
     $result = mysqli_query($connect, $query);
     if ($result){
         $user = mysqli_fetch_assoc($result);
@@ -18,6 +19,5 @@ if (!is_null($connect) && isset($_SESSION['userId']) && is_numeric($_SESSION['us
     }
     mysqli_close($connect);
 } else {
-    header("Location: /index.php");
-    exit();
+    location("/index.php");
 }
